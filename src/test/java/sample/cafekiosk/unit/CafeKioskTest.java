@@ -1,5 +1,6 @@
 package sample.cafekiosk.unit;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sample.cafekiosk.unit.beverage.Americano;
 import sample.cafekiosk.unit.beverage.Latte;
@@ -23,6 +24,9 @@ class CafeKioskTest {
     }
 
     @Test
+    // @DisplayName("음료 1개를 추가 테스트") // ~ 테스트 지양
+    // @DisplayName("음료 1개를 추가하면 주문 목록에 담긴다.") // 명사를 나열하기 보단 문장으로 기술
+    @DisplayName("음료를 1개 추가하면 주문 목록에 담긴다.") // 테스트 행위에 대한 결과까지 기술
     void add() {
         CafeKiosk cafeKiosk = new CafeKiosk();
         cafeKiosk.add(new Americano());
@@ -79,7 +83,9 @@ class CafeKioskTest {
     }
 
     @Test
+    @DisplayName("주문 목록에 담긴 상품들의 총 금액을 계산할 수 있다.")
     void calculateTotalPrice() {
+        // given
         CafeKiosk cafeKiosk = new CafeKiosk();
         Americano americano = new Americano();
         Latte latte = new Latte();
@@ -87,8 +93,10 @@ class CafeKioskTest {
         cafeKiosk.add(americano);
         cafeKiosk.add(latte);
 
+        // when
         int totalPrice = cafeKiosk.calculateTotalPrice();
 
+        // then
         assertThat(totalPrice).isEqualTo(8500);
     }
 
