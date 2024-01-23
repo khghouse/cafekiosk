@@ -7,7 +7,6 @@ import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
 import sample.cafekiosk.spring.domain.product.ProductType;
 
 @Getter
-
 public class ProductResponse {
 
     private Long id;
